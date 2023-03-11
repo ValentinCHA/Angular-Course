@@ -1,0 +1,43 @@
+<div class="content" style="text-align: center">
+  <h1>Liste de pokemons !</h1>
+  <input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
+
+  <p *ngIf="pokemonSelected">
+    Vous avez sélectionné le pokemon : {{ pokemonSelected ? pokemonSelected.name : null }}
+  </p>
+  <p *ngIf="!pokemonSelected">Aucun pokémon n'a été trouvé pour le moment.</p>
+
+  <!-- <div class="contentWrapper">
+    <div class="card" style="width:250px;" *ngFor="let pokemon of pokemonList">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img style="width:200px;" class="activator" src={{pokemon.picture}} >
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"> {{pokemon.name}} <i class="material-icons right"></i></span>
+        <p><a href="#"> {{pokemon.created}} </a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"> {{pokemon.name}} <i class="material-icons right">close</i></span>
+        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let pokemon of pokemonList" class="col m4 s6">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img [src]="pokemon.picture" [alt]="pokemon.name"/>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p class="bold"> {{ pokemon.name }} </p>
+              <p><small> {{ pokemon.created }} </small></p>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
